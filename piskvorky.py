@@ -1,4 +1,4 @@
-from GitHubProjects import ai
+import ai
 
 
 def vysledek(pole):
@@ -15,17 +15,27 @@ def vysledek(pole):
         return True
 
 def main():
-    pole = 12*"-"
+    pole = 20*"-"
+    symbol_ai = "o"
+    symbol_vs = "x"
+
+    AI = 0
+    VS = 0
+
     print(len(pole))
     while "-" in pole:
-        pole = ai.tah_ai(pole)
+        print("Hraje AI s O")
+        pole = ai.tah_ai(pole,symbol_ai)
         if vysledek(pole) == False:
             print(pole)
+            AI = AI+1
             break
         print(pole)
-        pole = tah_hrace(pole)
+        print("Hraje AI s X")
+        pole = ai.tah_ai(pole, symbol_vs)
         if vysledek(pole) == False:
             print(pole)
+            VS = VS+1
             break
         print(pole)
 
@@ -50,7 +60,10 @@ def tah_hrace(pole):
     return ai.tah(pole, pozice, symbol)
 
 i=0
+remiza = 0
 
-while i < 5:
+
+
+while i < 200:
     main()
     i += 1
