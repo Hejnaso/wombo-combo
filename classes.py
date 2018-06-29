@@ -62,7 +62,6 @@ class SimulationOfSolarSystem:
     def draw_orbit(self, orbit):
         turtle.penup()
         self.turtle.setpos(self.solar_system.star.get_position()[0],-orbit.radius)
-        #self.setpos = turtle_setpos
         turtle.pendown()
         self.turtle.circle(orbit.radius)
 
@@ -95,8 +94,9 @@ class SimulationOfSolarSystem:
         self.draw_star(self.solar_system.star)
         self.draw_hole()
         for planet in self.solar_system.planets:
-            self.draw_planet(planet)
             self.draw_orbit(planet.orbit)
+            self.draw_planet(planet)
+
 
 
 
@@ -109,10 +109,10 @@ def main():
     orbit_earth = Orbit(radius=250)
     orbit_mars = Orbit(radius=350)
 
-    mercury = Planet(diameter=10,position=0,color="orange", name="Mercury", orbit=orbit_mercury, angular_speed=3, orbital_direction=1)
-    venus = Planet(diameter=15, position=0, color="yellow", name="Venus", orbit=orbit_venus, angular_speed=4, orbital_direction=1)
-    earth = Planet(diameter=20, position=0, color="blue", name="Earth", orbit=orbit_earth, angular_speed=5, orbital_direction=1)
-    mars = Planet(diameter=17, position=0, color="red", name="Mars", orbit=orbit_mars, angular_speed=6, orbital_direction=1)
+    mercury = Planet(diameter=20,position=0,color="orange", name="Mercury", orbit=orbit_mercury, angular_speed=3, orbital_direction=1)
+    venus = Planet(diameter=25, position=0, color="yellow", name="Venus", orbit=orbit_venus, angular_speed=4, orbital_direction=1)
+    earth = Planet(diameter=40, position=0, color="blue", name="Earth", orbit=orbit_earth, angular_speed=5, orbital_direction=1)
+    mars = Planet(diameter=32, position=0, color="red", name="Mars", orbit=orbit_mars, angular_speed=6, orbital_direction=1)
 
 
     solar_system = SolarSystem(name="Solar system", planets=[mercury, venus, earth, mars], star=sun)
